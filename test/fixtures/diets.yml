@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  univ_id: 1
+  name: MyString
+  location: MyString
+  date: 2016-05-26
+  time: MyString
+  diet: MyText
+  extra: MyText
+
+two:
+  univ_id: 1
+  name: MyString
+  location: MyString
+  date: 2016-05-26
+  time: MyString
+  diet: MyText
+  extra: MyText

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Diets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Univ</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Diet</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @diets.each do |diet| %>
+      <tr>
+        <td><%= diet.univ_id %></td>
+        <td><%= diet.name %></td>
+        <td><%= diet.location %></td>
+        <td><%= diet.date %></td>
+        <td><%= diet.time %></td>
+        <td><%= diet.diet %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Diet', new_diet_path %>

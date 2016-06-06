@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Univ:</strong>
+  <%= @diet.univ_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @diet.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @diet.location %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @diet.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @diet.time %>
+</p>
+
+<p>
+  <strong>Diet:</strong>
+  <%= @diet.diet %>
+</p>
+
+<p>
+  <strong>Extra:</strong>
+  <%= @diet.extra %>
+</p>
+
+<%= link_to 'Edit', edit_diet_path(@diet) %> |
+<%= link_to 'Back', diets_path %>
