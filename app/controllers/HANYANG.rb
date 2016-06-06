@@ -34,7 +34,7 @@ class HANYANG
 	        elsif (p % 2 == 0) #짝수
 	          price = part.text.scan(/\d/).join('')  #price가 완료되면, 객체 생성
 	          Diet.create(
-	            :univ_id => 4,
+	            :univ_id => 01,
 	            :name => "학생식당",
 	            :location => "복지관2층",
 	            :date => @default_dates[i],
@@ -79,7 +79,7 @@ class HANYANG
 	        else
 	          content = part.text
 	          Diet.create(
-	            :univ_id => 4,
+	            :univ_id => 01,
 	            :name => "창의인재원식당",
 	            :location => "창의관1층",
 	            :date => @default_dates[i],
@@ -124,7 +124,7 @@ class HANYANG
 	          content = part.text
 	          price = part.next.next.text.scan(/\d/).join('')
 	          Diet.create(
-	            :univ_id => 4,
+	            :univ_id => 01,
 	            :name => "교직원식당",
 	            :location => "복지관3층",
 	            :date => @default_dates[i],
@@ -170,7 +170,7 @@ class HANYANG
 	          content = part.text
 	          price = part.next.next.text.scan(/\d/).join('')
 	          Diet.create(
-	            :univ_id => 4,
+	            :univ_id => 01,
 	            :name => "창업보육센터",
 	            :location => "창업보육센터 지하1층",
 	            :date => @default_dates[i],
@@ -215,7 +215,7 @@ class HANYANG
 	          content_part = part.text
 	          price = part.next.next.text.scan(/\d/).join('')
 	          Diet.create(
-	            :univ_id => 4,
+	            :univ_id => 01,
 	            :name => "마인드 푸드코트",
 	            :location => "복지관 3층",
 	            :date => @default_dates[i],

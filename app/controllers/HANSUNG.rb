@@ -22,7 +22,7 @@ class HANSUNG
 	    i=0
 	    (0..4).each do |t|
 	      Diet.create(
-	        :univ_id => 3,
+	        :univ_id => 555,
 	        :name => "일품",
 	        :location => "학생식당",
 	        :date => @default_dates[i],
@@ -39,7 +39,7 @@ class HANSUNG
 	    #석식 부분에는 쓸데없이 td가 하나 더 추가되어 있어서 1~5
 	    (1..5).each do |t|
 	      Diet.create(
-	        :univ_id => 3,
+	        :univ_id => 555,
 	        :name => "일품",
 	        :location => "학생식당",
 	        :date => @default_dates[i],
@@ -60,7 +60,7 @@ class HANSUNG
 	    i=0
 	    (0..4).each do |t|
 	      Diet.create(
-	        :univ_id => 3,
+	        :univ_id => 555,
 	        :name => "중식",
 	        :location => "교직원식당",
 	        :date => @default_dates[i],
@@ -76,7 +76,7 @@ class HANSUNG
 	    i=0
 	    (1..5).each do |t|
 	      Diet.create(
-	        :univ_id => 3,
+	        :univ_id => 555,
 	        :name => "석식",
 	        :location => "교직원식당",
 	        :date => @default_dates[i],

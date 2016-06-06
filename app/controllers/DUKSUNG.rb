@@ -23,7 +23,7 @@ class DUKSUNG
     target.each do |t| 
       if t.text[0] != '-'
         Diet.create(
-          :univ_id => 2,
+          :univ_id => 110,
           :name => "교직원식",
           :location => "학생회관2층",
           :date => @default_dates[i],
@@ -43,7 +43,7 @@ class DUKSUNG
     target.each do |t|
       if t.text[0] != '-'
         Diet.create(
-          :univ_id => 2,
+          :univ_id => 110,
           :name => "학생식",
           :location => "학생회관2층",
           :date => @default_dates[i],
@@ -52,7 +52,7 @@ class DUKSUNG
           :extra => ''
           )
         Diet.create(
-          :univ_id => 2,
+          :univ_id => 110,
           :name => "학생식",
           :location => "학생회관2층",
           :date => @default_dates[i],

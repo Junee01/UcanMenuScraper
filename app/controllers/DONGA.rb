@@ -44,7 +44,7 @@ class DONGA
 
 	      (0..3).each do |part|
 	        Diet.create(
-	          :univ_id => 8,
+	          :univ_id => 267,
 	          :name => names[part],
 	          :location => names[part],
 	          :date => @default_dates[day],
@@ -77,7 +77,7 @@ class DONGA
 
 	      (0..5).each do |part|
 	        Diet.create(
-	          :univ_id => 9,
+	          :univ_id => 267,
 	          :name => names[part],
 	          :location => names[part],
 	          :date => @default_dates[day],

@@ -35,7 +35,7 @@ class INHA
 	        price = tar.css('tbody tr')[0].css('td')[1].text.scan(/\d/).join('')
 
 	        Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "소반",
 	          :location => "학생식당",
 	          :date => @default_dates[i],
@@ -54,7 +54,7 @@ class INHA
 	        puts "nothing"
 	      else
 	        Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "스낵",
 	          :location => "학생식당",
 	          :date => @default_dates[i],
@@ -83,7 +83,7 @@ class INHA
 	        end
 
 	        Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "뚝배기",
 	          :location => "학생식당",
 	          :date => @default_dates[i],
@@ -113,7 +113,7 @@ class INHA
 	        
 
 	        Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "명가",
 	          :location => "학생식당",
 	          :date => @default_dates[i],
@@ -142,7 +142,7 @@ class INHA
 	        end
 	        
 	        Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "누들",
 	          :location => "학생식당",
 	          :date => @default_dates[i],
@@ -166,7 +166,7 @@ class INHA
 	        price = tar.css('tbody tr')[5].css('td')[1].text.scan(/\d/).join('')
 
 	        Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "소반",
 	          :location => "학생식당",
 	          :date => @default_dates[i],
@@ -190,7 +190,7 @@ class INHA
 	      price = tar.css('tbody tr')[6].css('td')[1].text.scan(/\d/).join('')
 
 	      Diet.create(
-	        :univ_id => 5,
+	        :univ_id => 171,
 	        :name => "돈까스",
 	        :location => "학생식당",
 	        :date => @default_dates[i],
@@ -214,7 +214,7 @@ class INHA
 	        price = target[0].css('tbody tr')[8].css('td')[1].text.scan(/\d/).join('')
 
 	        Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "스낵1",
 	          :location => "학생식당",
 	          :date => @default_dates[i],
@@ -239,7 +239,7 @@ class INHA
 	          puts "nothing"
 	        else
 	          Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "스낵2",
 	          :location => "학생식당",
 	          :date => @default_dates[i],
@@ -266,7 +266,7 @@ class INHA
 	        price = tar.css('tbody tr')[10].css('td')[1].text.scan(/\d/).join('')
 
 	        Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "뚝배기",
 	          :location => "학생식당",
 	          :date => @default_dates[i],
@@ -290,7 +290,7 @@ class INHA
 	        price = tar.css('tbody tr')[11].css('td')[1].text.scan(/\d/).join('')
 
 	        Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "명가",
 	          :location => "학생식당",
 	          :date => @default_dates[i],
@@ -314,7 +314,7 @@ class INHA
 	        price = tar.css('tbody tr')[12].css('td')[1].text.scan(/\d/).join('')
 
 	        Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "소반",
 	          :location => "학생식당",
 	          :date => @default_dates[i],
@@ -341,7 +341,7 @@ class INHA
 	      price = tar.css('tbody tr')[0].css('td')[1].text.scan(/\d/).join('')
 
 	      Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "백반(교직원)",
 	          :location => "교직원식당",
 	          :date => @default_dates[i],
@@ -355,7 +355,7 @@ class INHA
 	      price = tar.css('tbody tr')[1].css('td')[1].text.scan(/\d/).join('')
 
 	      Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "특식(교직원)",
 	          :location => "교직원식당",
 	          :date => @default_dates[i],
@@ -369,7 +369,7 @@ class INHA
 	      price = tar.css('tbody tr')[2].css('td')[1].text.scan(/\d/).join('')
 
 	      Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "석식(교직원)",
 	          :location => "교직원식당",
 	          :date => @default_dates[i],
@@ -400,7 +400,7 @@ class INHA
 	      price = tar.css('tbody tr')[0].css('td')[1].text.strip
 
 	      Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "중식(서호관)",
 	          :location => "서호관",
 	          :date => @default_dates[i],
@@ -419,7 +419,7 @@ class INHA
 	      price = tar.css('tbody tr')[1].css('td')[1].text.strip
 
 	      Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "스낵(서호관)",
 	          :location => "서호관",
 	          :date => @default_dates[i],
@@ -438,7 +438,7 @@ class INHA
 	      price = tar.css('tbody tr')[2].css('td')[1].text.strip
 
 	      Diet.create(
-	          :univ_id => 5,
+	          :univ_id => 171,
 	          :name => "석식(서호관)",
 	          :location => "서호관",
 	          :date => @default_dates[i],

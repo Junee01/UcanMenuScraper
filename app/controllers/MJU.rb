@@ -34,7 +34,7 @@ class MJU
 	        end
 
 	        Diet.create(
-	            :univ_id => 6,
+	            :univ_id => 25,
 	            :name => name,
 	            :location => "학생식당",
 	            :date => @default_dates[i],
@@ -75,7 +75,7 @@ class MJU
 	          price = ''
 
 	          Diet.create(
-	              :univ_id => 6,
+	              :univ_id => 25,
 	              :name => name,
 	              :location => "교직원식당",
 	              :date => @default_dates[i],
@@ -91,7 +91,7 @@ class MJU
 		          price = ''
 
 		          Diet.create(
-		              :univ_id => 6,
+		              :univ_id => 25,
 		              :name => name,
 		              :location => "교직원식당",
 		              :date => @default_dates[i],

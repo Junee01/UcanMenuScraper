@@ -29,7 +29,7 @@ class SYU
 	        else
 	          price = t.text
 	          Diet.create(
-	            :univ_id => 7,
+	            :univ_id => 36,
 	            :name => "프랜들리",
 	            :location => "바율관1층",
 	            :date => dat,
@@ -99,7 +99,7 @@ class SYU
 	    @default_dates.each do |dat|
 	      pinehouse.each do |p|
 	        Diet.create(
-	              :univ_id => 7,
+	              :univ_id => 36,
 	              :name => "파인하우스",
 	              :location => "학생회관1층",
 	              :date => dat,

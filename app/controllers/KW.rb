@@ -23,7 +23,7 @@ class KW
     target.each do |t|
       content = t.inner_html.gsub('<br>',",").strip
       Diet.create(
-        :univ_id => 10,
+        :univ_id => 106,
         :name => "함지마루",
         :location => "복지관 학생식당",
         :date => @default_dates[i],
@@ -32,7 +32,7 @@ class KW
         :extra => ''
         )
      	Diet.create(
-        :univ_id => 10,
+        :univ_id => 106,
         :name => "함지마루",
         :location => "복지관 학생식당",
         :date => @default_dates[i],
@@ -50,7 +50,7 @@ class KW
     target.each do |t|
       content = t.inner_html.gsub('<br>',",").strip
       Diet.create(
-        :univ_id => 10,
+        :univ_id => 106,
         :name => "함지마루",
         :location => "복지관 학생식당",
         :date => @default_dates[i],
@@ -68,7 +68,7 @@ class KW
     target.each do |t|
       content = t.inner_html.gsub('<br>',",").strip
       Diet.create(
-        :univ_id => 10,
+        :univ_id => 106,
         :name => "푸드코트",
         :location => "복지관 학생식당",
         :date => @default_dates[i],
