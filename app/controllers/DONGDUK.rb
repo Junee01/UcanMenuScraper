@@ -28,7 +28,7 @@ class DONGDUK
           :location => '학생식당',
           :date => @default_dates[i],
           :time => 'breakfast',
-          :diet => JSON.generate({:name => t.text.strip.gsub("\n",","), :price => "2900"}),
+          :diet => JSON.generate({:name => t.text.strip.gsub("\n",","), :price => "2,900"}),
           :extra => ''
           )
       else
@@ -48,7 +48,7 @@ class DONGDUK
           :location => '학생식당',
           :date => @default_dates[i],
           :time => 'lunch',
-          :diet => JSON.generate({:name => t.text.strip.gsub("\n",","), :price => "2900"}),
+          :diet => JSON.generate({:name => t.text.strip.gsub("\n",","), :price => "2,900"}),
           :extra => ''
           )
       else
@@ -68,7 +68,7 @@ class DONGDUK
           :location => '학생식당',
           :date => @default_dates[i],
           :time => 'dinner',
-          :diet => JSON.generate({:name => t.text.strip.gsub("\n",","), :price => "2900"}),
+          :diet => JSON.generate({:name => t.text.strip.gsub("\n",","), :price => "2,900"}),
           :extra => ''
           )
       else
@@ -88,7 +88,7 @@ class DONGDUK
           :location => '학생식당',
           :date => @default_dates[i],
           :time => 'breakfast',
-          :diet => JSON.generate({:name => t.text.strip.gsub("\n",","), :price => "1000~3400"}),
+          :diet => JSON.generate({:name => t.text.strip.gsub("\n",","), :price => "1,000~3,400"}),
           :extra => ''
           )
       else
@@ -108,7 +108,7 @@ class DONGDUK
           :location => '학생식당',
           :date => @default_dates[i],
           :time => 'breakfast',
-          :diet => JSON.generate({:name => t.text.strip.gsub("\n",","), :price => "3400~3600"}),
+          :diet => JSON.generate({:name => t.text.strip.gsub("\n",","), :price => "3,400~3,600"}),
           :extra => ''
           )
       else
@@ -128,7 +128,7 @@ class DONGDUK
           :location => '학생식당',
           :date => @default_dates[i],
           :time => 'breakfast',
-          :diet => JSON.generate({:name => t.text.strip.gsub("\n",","), :price => "3700~3800"}),
+          :diet => JSON.generate({:name => t.text.strip.gsub("\n",","), :price => "3,700~3,800"}),
           :extra => ''
           )
       else

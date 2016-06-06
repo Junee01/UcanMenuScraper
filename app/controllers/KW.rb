@@ -28,7 +28,7 @@ class KW
         :location => "복지관 학생식당",
         :date => @default_dates[i],
         :time => 'breakfast',
-        :diet => JSON.generate({:name => content, :price => '2500'}),
+        :diet => JSON.generate({:name => content, :price => '2,500'}),
         :extra => ''
         )
      	Diet.create(
@@ -37,7 +37,7 @@ class KW
         :location => "복지관 학생식당",
         :date => @default_dates[i],
         :time => 'lunch',
-        :diet => JSON.generate({:name => content, :price => '2500'}),
+        :diet => JSON.generate({:name => content, :price => '2,500'}),
         :extra => ''
         )
       i += 1
@@ -55,7 +55,7 @@ class KW
         :location => "복지관 학생식당",
         :date => @default_dates[i],
         :time => 'dinner',
-        :diet => JSON.generate({:name => content, :price => '2500'}),
+        :diet => JSON.generate({:name => content, :price => '2,500'}),
         :extra => ''
         )
       i += 1
