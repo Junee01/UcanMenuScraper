@@ -9,8 +9,14 @@ class DONGA
 		#동아 대학교는 6월 6일에는 해당일 식단을 업데이트 하지 않았습니다. 언제 업데이트를 하는지 기준이 모호합니다.
 		#동아 대학교 승학 캠퍼스
 
+		today = Date.today
+	    #억지로 today를 monday로 조절한다.
+	    while (today.monday? == false)
+	    	today = today - 1
+	    end
+
 	    (0..4).each do |i|
-	      @default_dates << ((Date.parse Date.today.to_s) + i).to_s
+	      @default_dates << ((Date.parse today.to_s) + i).to_s
 	      @donga01_urls << "http://www.donga.ac.kr/MM_PAGE/SUB007/SUB_007005005.asp?PageCD=007005005&seldate=" + @default_dates[i] + "#st"
 	      @donga02_urls << "http://www.donga.ac.kr/MM_PAGE/SUB007/SUB_007005005.asp?PageCD=007005005&seldate=" + @default_dates[i] + "#st"
 	    end

@@ -9,10 +9,16 @@ class SYU
 
 	    syu_data = Nokogiri::HTML(open(syu_url))
 
+	    today = Date.today
+	    #억지로 today를 monday로 조절한다.
+	    while (today.monday? == false)
+	    	today = today - 1
+	    end
+
 	    #From mon to Fri
 	    i = 0
 	    (0..4).each do |i|
-	    	@default_dates << ((Date.parse Date.today.to_s) + i).to_s
+	    	@default_dates << ((Date.parse today.to_s) + i).to_s
 	    end
 
 	    #프랜들리
