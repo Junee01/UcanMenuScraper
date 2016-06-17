@@ -1,5 +1,5 @@
 #동덕여자대학교
-class DONGDUK
+class Dongduk
   def initialize
     
     #URL

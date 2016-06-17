@@ -14,15 +14,13 @@
 ActiveRecord::Schema.define(version: 20160526032838) do
 
   create_table "diets", force: :cascade do |t|
-    t.integer  "univ_id",    limit: 4
-    t.string   "name",       limit: 255
-    t.string   "location",   limit: 255
-    t.date     "date"
-    t.string   "time",       limit: 255
-    t.text     "diet",       limit: 65535
-    t.text     "extra",      limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer "univ_id",  limit: 4
+    t.string  "name",     limit: 255
+    t.string  "location", limit: 255
+    t.date    "date"
+    t.string  "time",     limit: 255
+    t.text    "diet",     limit: 65535
+    t.text    "extra",    limit: 65535
   end
 
 end

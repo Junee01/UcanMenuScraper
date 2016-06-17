@@ -1,5 +1,6 @@
+
 #광운대학교
-class KW
+class Kw
 	def initialize
 		@default_dates = Array.new
 	end

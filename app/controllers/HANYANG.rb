@@ -1,5 +1,5 @@
 #한양대학교
-class HANYANG
+class Hanyang
 	def initialize
 
 	    @default_dates = Array.new
@@ -25,23 +25,29 @@ class HANYANG
 	    target.each do |t|
 	      p = 0 #각 메뉴별 즉, <td>
 	      t.css('td').each do |part|
-	        if (part.nil? || part.text == " ")
+	        if (part.nil? || part.text == " ")
 	          puts "nothing"
 	        elsif (part.text == "중식" || part.text == "석식")
 	          puts "nothing"
 	        elsif (p % 2 == 1)  #홀수
-	          content = part.text
+	        	if part.text != " "
+	          	content = part.text
+	          else
+	          end
 	        elsif (p % 2 == 0) #짝수
-	          price = part.text.scan(/\d/).join('')  #price가 완료되면, 객체 생성
-	          Diet.create(
-	            :univ_id => 01,
-	            :name => "학생식당",
-	            :location => "복지관2층",
-	            :date => @default_dates[i],
-	            :time => 'lunch',
-	            :diet => JSON.generate({:name => content, :price => price}),
-	            :extra => ''
-	            )
+	        	if part.text != " "
+		          price = part.text.scan(/\d/).join('')  #price가 완료되면, 객체 생성
+		          Diet.create(
+		            :univ_id => 01,
+		            :name => "학생식당",
+		            :location => "복지관2층",
+		            :date => @default_dates[i],
+		            :time => 'lunch',
+		            :diet => JSON.generate({:name => content, :price => price}),
+		            :extra => ''
+		            )
+		        else
+		        end
 	        else
 	          puts "nothing"
 	        end
@@ -66,64 +72,93 @@ class HANYANG
 	    content = ""
 	    time = ""
 	    i=0
-	    target.each do |t|
-	      t.css('td').each do |part|
-	        if (part.nil? || part.text == " ")
-	          puts "nothing"
-	        elsif (part.text == "조식")
-	          time = 'breakfast'
-	        elsif (part.text == "중식")
-	          time = 'lunch'
-	        elsif (part.text == "석식")
-	          time = 'dinner'
-	        else
-	          content = part.text
-	          Diet.create(
+	    checkfirst=0
+	    target.each do |t|	#each tables
+	    	if i == 7
+	    		break
+	    	end
+
+	    	t.css('tr').each do |part1|	#each <tr>
+	    		if checkfirst == 0
+	    			checkfirst = 1
+	    			next
+	    		else
+	    			puts "error"
+	    		end
+	    		p=0
+	    		part1.css('td').each do |part2|	#each <td>
+		        if (part2.text == "조식")
+		          time = 'breakfast'
+		        elsif (part2.text == "중식")
+		          time = 'lunch'
+		        elsif (part2.text == "석식")
+		          time = 'dinner'
+		        elsif (p % 2 == 1)  #홀수
+		        	if part2.text != " "	#이 곳에 사용된 빈칸은 그냥 빈칸이 아님.
+		          	content = part2.text
+		          else
+		          	next
+		          end
+		        elsif (p % 2 == 0) #짝수
+		        	price = part2.text.scan(/\d/).join('')
+		        	Diet.create(
 	            :univ_id => 01,
 	            :name => "창의인재원식당",
 	            :location => "창의관1층",
 	            :date => @default_dates[i],
 	            :time => time,
-	            :diet => JSON.generate({:name => content, :price => ''}),
+	            :diet => JSON.generate({:name => content, :price => price}),
 	            :extra => ''
 	            )
-	        end
-	      end
-	      i += 1
-	      #일요일까지 하고 끝
-	      if (i == 7)
-	        break
-	      else
-	      end
+		        else
+		        end
+		        p += 1
+	    		end
+	    	end
+	    	i += 1
 	    end
+
 
 	    #교직원 식당
 	    hanyang_erica_url = "https://www.hanyang.ac.kr/upmu/sikdan/sikdan_View.jsp?gb=2&code=1"
 
 	    hanyang_erica_data = Nokogiri::HTML(open(hanyang_erica_url))
 
-	    #교직원 식당
 	    target = hanyang_erica_data.css('div#sikdang table')
+
 	    content = ""
-	    price = ""
 	    time = ""
-	    i = 0
-	    target.each do |t|
-	      t.css('td').each do |part|
-	        if (part.nil? || part.text == " ")
-	          puts "nothing"
-	        elsif (part.text == "조식")
-	          time = 'breakfast'
-	        elsif (part.text == "중식")
-	          time = 'lunch'
-	        elsif (part.text == "석식")
-	          time = 'dinner'
-	        elsif ((part.text.reverse[0..2] =~ /\A\d+\z/) == 0) #숫자로만 이루어져 있다면 마지막 세자리가 숫자라면
-	          next
-	        else
-	          content = part.text
-	          price = part.next.next.text.scan(/\d/).join('')
-	          Diet.create(
+	    i=0
+	    checkfirst=0
+	    target.each do |t|	#each tables
+	    	if i == 5
+	    		break
+	    	end
+
+	    	t.css('tr').each do |part1|	#each <tr>
+	    		if checkfirst == 0
+	    			checkfirst = 1
+	    			next
+	    		else
+	    			puts "error"
+	    		end
+	    		p=0
+	    		part1.css('td').each do |part2|	#each <td>
+		        if (part2.text == "조식")
+		          time = 'breakfast'
+		        elsif (part2.text == "중식")
+		          time = 'lunch'
+		        elsif (part2.text == "석식")
+		          time = 'dinner'
+		        elsif (p % 2 == 1)  #홀수
+		        	if part2.text != " "	#이 곳에 사용된 빈칸은 그냥 빈칸이 아님.
+		          	content = part2.text
+		          else
+		          	next
+		          end
+		        elsif (p % 2 == 0) #짝수
+		        	price = part2.text.scan(/\d/).join('')
+	            Diet.create(
 	            :univ_id => 01,
 	            :name => "교직원식당",
 	            :location => "복지관3층",
@@ -132,14 +167,12 @@ class HANYANG
 	            :diet => JSON.generate({:name => content, :price => price}),
 	            :extra => ''
 	            )
-	        end
-	      end
-	      i += 1
-	      #금요일까지 하고 끝
-	      if (i == 5)
-	        break
-	      else
-	      end
+		        else
+		        end
+		        p += 1
+	    		end
+	    	end
+	    	i += 1
 	    end
 
 	    #창업보육센터
@@ -156,7 +189,7 @@ class HANYANG
 
 	    target.each do |t|
 	      t.css('td').each do |part|
-	        if (part.nil? || part.text == " ")
+	        if (part.nil? || part.text == " ")
 	          puts "nothing"
 	        elsif (part.text == "조식")
 	          time = 'breakfast'
@@ -169,6 +202,9 @@ class HANYANG
 	        else
 	          content = part.text
 	          price = part.next.next.text.scan(/\d/).join('')
+	          if content == " "	#content에 문제가 있으면 생성 x
+	          	next
+	          end
 	          Diet.create(
 	            :univ_id => 01,
 	            :name => "창업보육센터",
@@ -201,7 +237,7 @@ class HANYANG
 
 	    target.each do |t|
 	      t.css('td').each do |part|
-	        if (part.nil? || part.text == " ")
+	        if (part.nil? || part.text == " ")
 	          puts "nothing"
 	        elsif (part.text == "한식")
 	          content = part.text
@@ -214,6 +250,9 @@ class HANYANG
 	        else
 	          content_part = part.text
 	          price = part.next.next.text.scan(/\d/).join('')
+	          if content == " "
+	          	next
+	          end
 	          Diet.create(
 	            :univ_id => 01,
 	            :name => "마인드 푸드코트",
@@ -221,6 +260,7 @@ class HANYANG
 	            :date => @default_dates[i],
 	            :time => 'breakfast',
 	            :diet => JSON.generate({:name => content+content_part, :price => price}),
+	            #content + content_part는 자체적으로 조중석식으로 구분을 못하는 기준이 있기 때문에 추가.
 	            :extra => ''
 	            )
 	        end
@@ -234,5 +274,4 @@ class HANYANG
 	    end
 
 	end
-
 end

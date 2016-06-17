@@ -8,8 +8,6 @@ class CreateDiets < ActiveRecord::Migration
       t.string :time
       t.text :diet
       t.text :extra
-
-      t.timestamps null: false
     end
   end
 end

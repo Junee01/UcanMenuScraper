@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'diets#index'  #첫 페이지를 해당 페이지로 설정.
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

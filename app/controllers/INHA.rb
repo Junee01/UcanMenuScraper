@@ -1,5 +1,5 @@
 #인하대학교
-class INHA
+class Inha
 	def initialize
 		@default_dates = Array.new
 	end
@@ -32,6 +32,8 @@ class INHA
 	          content += t.text.gsub("\r\n","").gsub("    ","") + ','
 	        end
 
+	        content = content.gsub("\t","")	#인하대학교는 <여름을 부탁해!> 같은 타이틀을 사용할 때, \t를 많이 써서... 만약을 대비
+
 	        price = tar.css('tbody tr')[0].css('td')[1].text.scan(/\d/).join('')
 
 	        Diet.create(
@@ -47,10 +49,11 @@ class INHA
 	      
 	      #스낵
 	      content = tar.css('tbody tr')[1].css('td')[0].text.strip.gsub("\r\n","").gsub("    ","")
+	      content = content.gsub("\t","")
 	      price = tar.css('tbody tr')[1].css('td')[1].text.strip.scan(/\d/).join('')
 
 	      #이건 그냥 스페이스가 아니다.
-	      if content == " "
+	      if content == " "
 	        puts "nothing"
 	      else
 	        Diet.create(
@@ -75,6 +78,7 @@ class INHA
 	        tmp.each do |t|
 	          content += t.text.gsub("\r\n\t\t\t\t\t\t","").gsub("\r\n","").gsub("    ","") + ','
 	        end
+	        content = content.gsub("\t","")
 
 	        if tar.css('tbody tr')[2].css('td')[1].text.strip.split('/')[1].nil?
 	          price = tar.css('tbody tr')[2].css('td')[1].text.strip.scan(/\d/).join('')
@@ -104,6 +108,7 @@ class INHA
 	        tmp.each do |t|
 	          content += t.text.gsub("\r\n","").gsub("    ","") + ','
 	        end
+	        content = content.gsub("\t","")
 
 	        if tar.css('tbody tr')[3].css('td')[1].text.strip.split('/')[1].nil?
 	          price = tar.css('tbody tr')[3].css('td')[1].text.scan(/\d/).join('')
@@ -134,6 +139,7 @@ class INHA
 	        tmp.each do |t|
 	          content += t.text.gsub("\r\n","") + ','
 	        end
+	        content = content.gsub("\t","")
 
 	        if tar.css('tbody tr')[4].css('td')[1].text.strip.split('/')[1].nil?
 	          tar.css('tbody tr')[4].css('td')[1].text.scan(/\d/).join('')
@@ -162,6 +168,7 @@ class INHA
 	        tmp.each do |t|
 	          content += t.text.gsub("\r\n","") + ','
 	        end
+	        content = content.gsub("\t","")
 
 	        price = tar.css('tbody tr')[5].css('td')[1].text.scan(/\d/).join('')
 
@@ -186,6 +193,7 @@ class INHA
 	        tmp.each do |t|
 	        content += t.text.gsub("\r\n","") + ','
 	      end
+	      content = content.gsub("\t","")
 
 	      price = tar.css('tbody tr')[6].css('td')[1].text.scan(/\d/).join('')
 
@@ -210,6 +218,7 @@ class INHA
 	        tmp.each do |t|
 	          content += t.text.strip.gsub("■",",").gsub(" \\","/")
 	        end
+	        content = content.gsub("\t","")
 
 	        price = target[0].css('tbody tr')[8].css('td')[1].text.scan(/\d/).join('')
 
@@ -234,6 +243,7 @@ class INHA
 	        tmp.each do |t|
 	          content += t.text + ','
 	        end
+	        content = content.gsub("\t","")
 	        price = tar.css('tbody tr')[9].css('td')[1].text.scan(/\d/).join('')
 	        if tmp.empty?
 	          puts "nothing"
@@ -262,6 +272,7 @@ class INHA
 	        tmp.each do |t|
 	          content += t.text.gsub("\r\n","").gsub("    ","") + ","
 	        end
+	        content = content.gsub("\t","")
 
 	        price = tar.css('tbody tr')[10].css('td')[1].text.scan(/\d/).join('')
 
@@ -286,6 +297,7 @@ class INHA
 	        tmp.each do |t|
 	          content += t.text.gsub("\r\n","").gsub("    ","") + ","
 	        end
+	        content = content.gsub("\t","")
 
 	        price = tar.css('tbody tr')[11].css('td')[1].text.scan(/\d/).join('')
 
@@ -310,6 +322,7 @@ class INHA
 	        tmp.each do |t|
 	          content += t.text.gsub("\r\n","").gsub("    ","") + ","
 	        end
+	        content = content.gsub("\t","")
 
 	        price = tar.css('tbody tr')[12].css('td')[1].text.scan(/\d/).join('')
 
@@ -338,6 +351,7 @@ class INHA
 	    target.each do |tar|
 	      #백반
 	      content = tar.css('tbody tr')[0].css('td.left').text.strip.gsub("\t","").gsub("\r\n",",")
+	      content = content.gsub("\t","")
 	      price = tar.css('tbody tr')[0].css('td')[1].text.scan(/\d/).join('')
 
 	      Diet.create(
@@ -352,6 +366,7 @@ class INHA
 
 	      #특식
 	      content = tar.css('tbody tr')[1].css('td.left').text.strip.gsub("\t","").gsub("\r\n",",")
+	      content = content.gsub("\t","")
 	      price = tar.css('tbody tr')[1].css('td')[1].text.scan(/\d/).join('')
 
 	      Diet.create(
@@ -366,6 +381,7 @@ class INHA
 
 	      #석식
 	      content = tar.css('tbody tr')[2].css('td.left').text.strip.gsub("\t","").gsub("\r\n",",")
+	      content = content.gsub("\t","")
 	      price = tar.css('tbody tr')[2].css('td')[1].text.scan(/\d/).join('')
 
 	      Diet.create(
@@ -396,6 +412,7 @@ class INHA
 	      tmp.each do |t|
 	          content += t.text + ","
 	      end
+	      content = content.gsub("\t","")
 
 	      price = tar.css('tbody tr')[0].css('td')[1].text.strip
 
@@ -415,6 +432,7 @@ class INHA
 	      tmp.each do |t|
 	          content += t.text + ","
 	      end
+	      content = content.gsub("\t","")
 
 	      price = tar.css('tbody tr')[1].css('td')[1].text.strip
 
@@ -434,6 +452,7 @@ class INHA
 	      tmp.each do |t|
 	          content += t.text + ","
 	      end
+	      content = content.gsub("\t","")
 
 	      price = tar.css('tbody tr')[2].css('td')[1].text.strip
 

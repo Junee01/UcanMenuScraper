@@ -1,5 +1,5 @@
 #명지대학교
-class MJU
+class Mju
 	def initialize
 		@default_dates = Array.new
 	end
@@ -31,6 +31,10 @@ class MJU
 	          time = 'dinner'
 	        else
 	          time = 'breakfast'  #default
+	        end
+
+	        if content == " "	#콘텐츠에 문제가 있으면 Skip
+	        	next
 	        end
 
 	        Diet.create(
@@ -74,6 +78,10 @@ class MJU
 	          content = t.css('td')[1].css('p')[0].text.gsub("<","").split(">")[1]
 	          price = ''
 
+	          if content == " "	#콘텐츠에 문제가 있으면 Skip
+	        		next
+	        	end
+
 	          Diet.create(
 	              :univ_id => 25,
 	              :name => name,
@@ -89,6 +97,10 @@ class MJU
 		          name = t.css('td')[1].css('p')[3].text.gsub("<","").split(">")[0]
 		          content = t.css('td')[1].css('p')[3].text.gsub("<","").split(">")[1]
 		          price = ''
+
+		          if content == " "	#콘텐츠에 문제가 있으면 Skip
+		        		next
+		        	end
 
 		          Diet.create(
 		              :univ_id => 25,

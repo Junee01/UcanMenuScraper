@@ -1,5 +1,5 @@
 #덕성여자대학교
-class DUKSUNG
+class Duksung
   def initialize
     
     #URL

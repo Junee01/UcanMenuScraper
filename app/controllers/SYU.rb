@@ -1,5 +1,5 @@
 #삼육대학교
-class SYU
+class Syu
 	def initialize
 		@default_dates = Array.new
 	end

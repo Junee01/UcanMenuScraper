@@ -1,5 +1,5 @@
 #동아대학교
-class DONGA
+class Donga
 	def initialize
 		@default_dates = Array.new
 	    @donga01_urls = Array.new
@@ -49,6 +49,10 @@ class DONGA
 	      price = ""
 
 	      (0..3).each do |part|
+	      	if contents[part] == " "	#콘텐츠에 문제가 있으면 Skip
+	        	next
+	        end
+
 	        Diet.create(
 	          :univ_id => 267,
 	          :name => names[part],
@@ -82,6 +86,10 @@ class DONGA
 	      contents << target.css('td.sk02TD')[6].text.strip.gsub("\n\n","\n").gsub("\n\n","\n").gsub("\n",",")
 
 	      (0..5).each do |part|
+	      	if contents[part] == " "	#콘텐츠에 문제가 있으면 Skip
+	        	next
+	        end
+
 	        Diet.create(
 	          :univ_id => 267,
 	          :name => names[part],

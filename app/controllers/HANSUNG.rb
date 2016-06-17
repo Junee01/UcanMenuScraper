@@ -1,5 +1,5 @@
 #한성대학교
-class HANSUNG
+class Hansung
 	def initialize
 		
 		#URL

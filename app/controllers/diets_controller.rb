@@ -6,76 +6,79 @@ class DietsController < ApplicationController
   def index
     @diets = Diet.all
 
-    #월요일이라면, 크롤링 작업을 진행합니다. 하지만, 아니라면, 하지 않습니다.
     #TCP 요청을 보냈을 때, 페이지 자체 문제로 Failed이 나면, 복구하고 우선 다음 작업을 수행합니다. rescue의 역할입니다.
-    today = Date.today
-    if today.monday?
       begin
         #동덕여대
-        dongduk = DONGDUK.new
+        dongduk = Dongduk.new
         dongduk.scrape
       rescue
         puts 'rescued.'
       end
+      
       begin
         #덕성여대
-        duksung = DUKSUNG.new
+        duksung = Duksung.new
         duksung.scrape
       rescue
         puts 'rescued.'
       end
+
       begin
         #한성대
-        hansung = HANSUNG.new
+        hansung = Hansung.new
         hansung.scrape
       rescue
         puts 'rescued.'
       end
+
       begin
         #한양대 에리카
-        hanyang_erica = HANYANG.new
+        hanyang_erica = Hanyang.new
         hanyang_erica.scrape
       rescue
         puts 'rescued.'
       end
+
       begin
         #인하대
-        inha = INHA.new
+        inha = Inha.new
         inha.scrape
       rescue
         puts 'rescued.'
       end
+
       begin
         #명지대 인문
-        mju = MJU.new
+        mju = Mju.new
         mju.scrape
       rescue
         puts 'rescued.'
       end
+
       begin
         #삼육대
-        syu = SYU.new
+        syu = Syu.new
         syu.scrape
       rescue
         puts 'rescued.'
       end
+
       begin
         #동아대
-        donga = DONGA.new
+        donga = Donga.new
         donga.scrape
       rescue
         puts 'rescued.'
       end
+
       begin
         #광운대
-        kw = KW.new
+        kw = Kw.new
         kw.scrape
       rescue
         puts 'rescued.'
       end
-    else
-      puts "Error : Not monday"
-    end
+      
   end
 
   # GET /diets/1
