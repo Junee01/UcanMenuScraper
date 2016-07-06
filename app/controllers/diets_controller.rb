@@ -1,3 +1,8 @@
+require 'DongaSh'
+require 'DongaBm'
+require 'KwFoodCort'
+require 'HanyangErica'
+
 class DietsController < ApplicationController
   before_action :set_diet, only: [:show, :edit, :update, :destroy]
 
@@ -7,78 +12,88 @@ class DietsController < ApplicationController
     @diets = Diet.all
 
     #TCP 요청을 보냈을 때, 페이지 자체 문제로 Failed이 나면, 복구하고 우선 다음 작업을 수행합니다. rescue의 역할입니다.
-      begin
-        #동덕여대
-        dongduk = Dongduk.new
-        dongduk.scrape
-      rescue
-        puts 'rescued.'
-      end
-      
-      begin
-        #덕성여대
-        duksung = Duksung.new
-        duksung.scrape
-      rescue
-        puts 'rescued.'
-      end
+    
+    #동덕여대
+    # begin
+    #  dongduk = Dongduk.new
+    #  dongduk.scrape
+    # rescue
+    #   puts 'rescued.'
+    # end
+    
+    #덕성여대
+    begin
+      duksung = Duksung.new
+      duksung.scrape
+    rescue
+      puts 'rescued...'
+    end
 
-      begin
-        #한성대
-        hansung = Hansung.new
-        hansung.scrape
-      rescue
-        puts 'rescued.'
-      end
+    #한성대
+    begin
+      hansung = Hansung.new
+      hansung.scrape
+    rescue
+      puts 'rescued...'
+    end
 
-      begin
-        #한양대 에리카
-        hanyang_erica = Hanyang.new
-        hanyang_erica.scrape
-      rescue
-        puts 'rescued.'
-      end
+    #한양대 에리카
+    begin
+      hanyang_erica = HanyangErica.new
+      hanyang_erica.scrape
+    rescue
+      puts 'rescued.'
+    end
 
-      begin
-        #인하대
-        inha = Inha.new
-        inha.scrape
-      rescue
-        puts 'rescued.'
-      end
+    #인하대
+    begin
+      inha = Inha.new
+      inha.scrape
+    rescue
+      puts 'rescued.'
+    end
 
-      begin
-        #명지대 인문
-        mju = Mju.new
-        mju.scrape
-      rescue
-        puts 'rescued.'
-      end
+    #명지대 인문캠퍼스
+    begin
+      mju = Mju.new
+      mju.scrape
+    rescue
+      puts 'rescued.'
+    end
 
-      begin
-        #삼육대
-        syu = Syu.new
-        syu.scrape
-      rescue
-        puts 'rescued.'
-      end
+    #삼육대
+    begin
+      syu = Syu.new
+      syu.scrape
+    rescue
+      puts 'rescued.'
+    end
 
-      begin
-        #동아대
-        donga = Donga.new
-        donga.scrape
-      rescue
-        puts 'rescued.'
-      end
+    #동아대 승학캠퍼스
+    begin
+      dongash = DongaSh.new
+      dongash.scrape
+    rescue
+      puts 'rescued.'
+    end
 
-      begin
-        #광운대
-        kw = Kw.new
-        kw.scrape
-      rescue
-        puts 'rescued.'
-      end
-      
+    #동아대 구덕/부민캠퍼스
+    begin
+      dongabm = DongaBm.new
+      dongabm.scrape
+    rescue
+      puts 'rescued.'
+    end
+
+    #광운대, 광운대 푸드코트
+    begin
+      kw = Kw.new
+      kw.scrape
+      kwfc = KwFoodCort.new
+      kwfc.scrape
+    rescue
+      puts 'rescued.'
+    end
   end
 
   # GET /diets/1

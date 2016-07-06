@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>id</th>
       <th>Univ</th>
       <th>Name</th>
       <th>Location</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @diets.each do |diet| %>
       <tr>
+        <td><%= diet.id %></td>
         <td><%= diet.univ_id %></td>
         <td><%= diet.name %></td>
         <td><%= diet.location %></td>

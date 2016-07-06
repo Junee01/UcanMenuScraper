@@ -1,71 +1,95 @@
 #덕성여자대학교
 class Duksung
+  #Initialize
   def initialize
-    
-    #URL
-    @duksung_url = "http://www.duksung.ac.kr/life/foodmenu/index.jsp"
-    #Parsing to <HTML> with Nokogiri
-    @duksung_data = Nokogiri::HTML(open(@duksung_url))
-
-    #Mon to Fri
-    @default_dates = Array.new
-    (1..5).each do |i|
-      @default_dates << Date.today.year.to_s + "-" + Date.today.month.to_s + "-" + @duksung_data.css('table.menu-table thead tr th')[i].text.strip.scan(/\d/).join('')
+    #URL, Parse <HTML>
+    @url = "http://www.duksung.ac.kr/life/foodmenu/index.jsp"
+    @parsed_data = Nokogiri::HTML(open(@url))
+		@default_dates = Array.new 
+		
+    #Init Mon to Fri
+		today = Date.today
+    while (today.monday? == false)
+      today = today - 1
+    end 
+    d = 0       
+    (0..4).each do |d|
+      @default_dates << ((Date.parse today.to_s) + d).to_s
     end
+  end #Initialize end
 
-  end
-
-  def scrape
+  #Main method scraping
+	def scrape
+    eachmenus = "" #Each menus
+    currentDate = 0 #Each Date 'Mon ~ Fri' or 'Mon ~ Sun' 
     
     #교직원 식당
-    target = @duksung_data.css('table.menu-table tbody tr')[0].css('td')
-    i = 0
+    target = @parsed_data.css('table.menu-table tbody tr')[0].css('td')
     target.each do |t| 
       if t.text[0] != '-'
-        Diet.create(
-          :univ_id => 110,
-          :name => "교직원식",
-          :location => "학생회관2층",
-          :date => @default_dates[i],
-          :time => 'lunch',
-          :diet => JSON.generate({:name => t.text.strip.gsub("\n","").gsub("\r",","), :price => ''}),
-          :extra => ''
-          )
+        if t.text.strip.gsub("\n","").gsub("\r",",").empty?
+          break
+        else
+          eachmenus = JSON.generate({:name => t.text.strip.gsub("\n","").gsub("\r",","), :price => ''})
+          Diet.create(
+            :univ_id => 2,
+            :name => "교직원식당",
+            :location => "학생회관 2층",
+            :date => @default_dates[currentDate],
+            :time => 'lunch',
+            :diet =>  ArrJson(eachmenus),
+            :extra => nil
+            )
+        end
       else
         next
       end
-      i += 1
+      currentDate += 1
     end
 
-    #학생 식당
-    target = @duksung_data.css('table.menu-table tbody tr')[1].css('td')
-    i = 0
+		#학생 식당
+		target = @parsed_data.css('table.menu-table tbody tr')[1].css('td')
+    eachmenus = ""
+    currentDate = 0 #현재 날짜
     target.each do |t|
       if t.text[0] != '-'
+        eachmenus = JSON.generate({:name => t.text.strip.split("\r\r")[0].gsub("\n","").gsub("\r",",").gsub("*중식*,",""), :price => ''})
         Diet.create(
-          :univ_id => 110,
-          :name => "학생식",
-          :location => "학생회관2층",
-          :date => @default_dates[i],
+          :univ_id => 2,
+          :name => "학생식당",
+          :location => "학생회관 2층",
+          :date => @default_dates[currentDate],
           :time => 'lunch',
-          :diet => JSON.generate({:name => t.text.strip.split("\r\r")[0].gsub("\n","").gsub("\r",",").gsub("*중식*,",""), :price => ''}),
-          :extra => ''
+          :diet => ArrJson(eachmenus),
+          :extra => nil
           )
-        Diet.create(
-          :univ_id => 110,
-          :name => "학생식",
-          :location => "학생회관2층",
-          :date => @default_dates[i],
-          :time => 'dinner',
-          :diet => JSON.generate({:name => t.text.strip.split("\r\r")[1].gsub("\n","").gsub("\r",",").gsub("*석식*,",""), :price => ''}),
-          :extra => ''
-          )
+				if t.text.strip.split("\r\r")[1].nil?
+          #Do nothing
+        else
+          eachmenus = JSON.generate({:name => t.text.strip.split("\r\r")[1].gsub("\n","").gsub("\r",",").gsub("*석식*,",""), :price => ''})
+					Diet.create(
+            :univ_id => 2,
+            :name => "학생식당",
+            :location => "학생회관 2층",
+            :date => @default_dates[currentDate],
+            :time => 'dinner',
+            :diet => ArrJson(eachmenus),
+            :extra => nil
+            )
+				end
       else
         next
       end
-      i += 1
+      currentDate += 1
     end
 
-  end
+  end #scrape end
+
+  #Make a Array of Json
+  def ArrJson(str)
+    tmp = ""
+    tmp += ("[" + str + "]")
+    tmp
+  end #ArrJson end
 
 end
