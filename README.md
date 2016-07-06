@@ -19,13 +19,14 @@
 - Database는 Mysql을 기준으로 구현되어 있습니다.
 - Ruby 2.3.1 / Rails 4.2.5.1
 
-[Used Gems]
-1. 'nokogiri' HTML/XML PARSER
-2. 'open-uri' GET REQUEST TO WEB PAGE
-3. 'json'	  STRING TO JSON
-4. 'net/http' GET REQUEST TO LOCAL PAGE
-5. 'whenever' MAKE A CRONTAB MORE EASIER
-6. 'schema_to_scaffold' HELP MAKING COMMAND THAT MAKE A SCAFFOLD MATCHING EXISTING SCHEMA.
+사용된 Gem 목록
+
+1. 'nokogiri' => HTML/XML Paser.
+2. 'open-uri' => Get request to web page.
+3. 'json'	  => Convert String to Json.
+4. 'net/http' => Get Request to local page when background process.
+5. 'whenever' => Crontab maker.
+6. 'schema_to_scaffold' It helps making commandline that change existing schema to rails scaffold.
 
 [동작 순서]
 1. 업데이트 예정...
