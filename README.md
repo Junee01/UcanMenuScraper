@@ -21,12 +21,12 @@
 
 사용된 Gem 목록
 
-1. 'nokogiri' => HTML/XML Paser.
-2. 'open-uri' => Get request to web page.
-3. 'json'	  => Convert String to Json.
-4. 'net/http' => Get Request to local page when background process.
-5. 'whenever' => Crontab maker.
-6. 'schema_to_scaffold' It helps making commandline that change existing schema to rails scaffold.
+- 'nokogiri' => HTML/XML Paser.
+- 'open-uri' => Get request to web page.
+- 'json'	  => Convert String to Json.
+- 'net/http' => Get Request to local page when background process.
+- 'whenever' => Crontab maker.
+- 'schema_to_scaffold' It helps making commandline that change existing schema to rails scaffold.
 
 [동작 순서]
 1. 업데이트 예정...
