@@ -14,20 +14,16 @@
 9. 동아대학교 승학캠퍼스(6)
 10. 동아대학교 구덕/부민캠퍼스(7)
 
+
 ==사용된 Gem 목록
 
-1. 'nokogiri' => HTML/XML Paser.
-(html 파서)
-2. 'open-uri' => Get request to web page.
-(html 코드를 가져오도록 요청을 돕는 잼)
-3. 'json'	  => Convert String to Json.
-(json 형태로 변환하기 위한 잼)
-4. 'net/http' => Get Request to local page when background process.
-(background 작업 시 해당 서버에 get 요청을 보내기 위한 잼.)
-5. 'whenever' => Crontab maker.
-(Crontab을 편하게 작성하도록 도와주는 잼.)
-6. 'schema_to_scaffold' It helps making commandline that change existing schema to rails scaffold.
-(기존의 Mysql Schema를 Rails 프로젝트로 Dump하는 것을 도와주는 잼.)
+1. 'nokogiri' => HTML/XML Paser. (html 파서)
+2. 'open-uri' => Get request to web page. (html 코드를 가져오도록 요청을 돕는 잼)
+3. 'json'	  => Convert String to Json. (json 형태로 변환하기 위한 잼)
+4. 'net/http' => Get Request to local page when background process. (background 작업 시 해당 서버에 get 요청을 보내기 위한 잼.)
+5. 'whenever' => Crontab maker. (Crontab을 편하게 작성하도록 도와주는 잼.)
+6. 'schema_to_scaffold' It helps making commandline that change existing schema to rails scaffold. (기존의 Mysql Schema를 Rails 프로젝트로 Dump하는 것을 도와주는 잼.)
+
 
 ==참고사항
 
@@ -38,6 +34,7 @@
 - Ruby 2.3.1 / Rails 4.2.5.1
 - rvm으로 가상 개발환경 형태로 자체 설치 및 구현이 되어있기 때문에 Gemfile에는 추가 Gem이 들어가 있지 않습니다.
 
+
 =
 
 [동작 순서]
@@ -46,6 +43,7 @@
 2. 각 대학별로 클래스가 구현되어 있고, 각 대학별로 크롤링이 진행된다.
 3. 만약 Request나 자체적으로 Error가 발생한다면, 우선 회복(Rescue)되고 에러 메시지가 기록되고 다음 학교로 넘어간다.
 4. 각각의 학교마다 해당 페이지에 접속하여 HTML과 CSS구조를 구분하고 원하는 데이터를 Json의 배열형태로 DB(Mysql)에 넣는다.
+
 
 =
 
