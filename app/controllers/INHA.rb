@@ -12,6 +12,7 @@ class Inha
 	  end
 	end #Initialize end
 
+	#Main method scraping
 	def scrape
 		
 		target = @parsed_data.css('div.tbl_food_list')

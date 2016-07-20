@@ -4,7 +4,7 @@ class HanyangErica
   def initialize
     @default_dates = Array.new
     @url = "https://www.hanyang.ac.kr/upmu/sikdan/sikdan_View.jsp?gb=2&code=2"
-    @parsed_data = Nokogiri::HTML(open(@url))
+    @parsed_data = Nokogiri::HTML(open(@url),nil,'euc-kr')
 
     #Init Mon to Fri
     (0..6).each do |i|  #일요일까지 있는 경우도 있음.
@@ -12,6 +12,7 @@ class HanyangErica
     end
   end #Initialize end
 
+  #Main method scraping
   def scrape
     menu = ""
     content = ""
@@ -71,7 +72,7 @@ class HanyangErica
 
     #창의인재원식당
     @url = "https://www.hanyang.ac.kr/upmu/sikdan/sikdan_View.jsp?gb=2&code=3"
-    @parsed_data = Nokogiri::HTML(open(@url))
+    @parsed_data = Nokogiri::HTML(open(@url),nil,'euc-kr')
     content = ""
     time = ""
     currentDate=0
@@ -162,7 +163,7 @@ class HanyangErica
 
     #교직원 식당
     @url = "https://www.hanyang.ac.kr/upmu/sikdan/sikdan_View.jsp?gb=2&code=1"
-    @parsed_data = Nokogiri::HTML(open(@url))
+    @parsed_data = Nokogiri::HTML(open(@url),nil,'euc-kr')
     content = ""
     time = ""
     currentDate=0
@@ -188,15 +189,15 @@ class HanyangErica
           elsif (part2.text == "석식") #From here time is dinner
             #Before start dinner insert into diet value "lunchs."
             if menu != ""
-            Diet.create(
-              :univ_id => 10,
-              :name => "교직원식당",
-              :location => "복지관 3층",
-              :date => @default_dates[currentDate],
-              :time => time,
-              :diet => ArrJson(menu),
-              :extra => nil #NULL
-              )
+              Diet.create(
+                :univ_id => 10,
+                :name => "교직원식당",
+                :location => "복지관 3층",
+                :date => @default_dates[currentDate],
+                :time => time,
+                :diet => ArrJson(menu),
+                :extra => nil #NULL
+                )
             end
             time = 'dinner'
             menu = ""
@@ -239,7 +240,7 @@ class HanyangErica
 
     #창업보육센터
     @url = "https://www.hanyang.ac.kr/upmu/sikdan/sikdan_View.jsp?gb=2&code=5"
-    @parsed_data = Nokogiri::HTML(open(@url))
+    @parsed_data = Nokogiri::HTML(open(@url),nil,'euc-kr')
     content = ""
     price = ""
     time = ""
@@ -307,7 +308,7 @@ class HanyangErica
 
     #마인드 푸드코트
     @url = "https://www.hanyang.ac.kr/upmu/sikdan/sikdan_View.jsp?gb=2&code=4"
-    @parsed_data = Nokogiri::HTML(open(@url))
+    @parsed_data = Nokogiri::HTML(open(@url),nil,'euc-kr')
     price = ""
     content = ""
     currentDate = 0
@@ -381,7 +382,7 @@ class HanyangErica
       end
     end #마인드 푸드코트 끝
 
-  end #scrape
+  end #scrape end
 
   #Make a Array of Json
   def ArrJson(str)
@@ -390,4 +391,4 @@ class HanyangErica
     tmp
   end #ArrJson end
 
-end #class
+end #class end

@@ -182,4 +182,4 @@ class Syu
     tmp
   end #ArrJson end
 
-end
+end #Class end

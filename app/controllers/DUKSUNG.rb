@@ -4,7 +4,7 @@ class Duksung
   def initialize
     #URL, Parse <HTML>
     @url = "http://www.duksung.ac.kr/life/foodmenu/index.jsp"
-    @parsed_data = Nokogiri::HTML(open(@url))
+    @parsed_data = Nokogiri::HTML(open(@url),nil,'euc-kr')
 		@default_dates = Array.new 
 		
     #Init Mon to Fri
@@ -92,4 +92,4 @@ class Duksung
     tmp
   end #ArrJson end
 
-end
+end #Class end

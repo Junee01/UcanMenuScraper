@@ -184,6 +184,6 @@ class Mju
     tmp = ""
     tmp += ("[" + str + "]")
     tmp
-  end
+  end #ArrJson end
 
-end
+end #Class end
